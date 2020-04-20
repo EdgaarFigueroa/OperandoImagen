@@ -32,13 +32,14 @@ int main()
 //    image2Grey(&img1, &imgGrey);
 
     CRONO_THIS(UNION2FUNS(image2Grey(&img1, &imgGrey), imageSave(&imgGrey)));
+    /*imageSave(&imgGrey) guarda las imagenes resultantes
+    image2Grey(&img1, &imgGrey) transforma una imagen a blanco y negro
+    UNION2FUNS(image2Grey(&img1, &imgGrey), imageSave(&imgGrey)) ejecuta 2 sentencias
+    CRONO_THIS(UNION2FUNS(image2Grey(&img1, &imgGrey), imageSave(&imgGrey))) cronometra lo que tarda en ejecutarse una declaracion
+    */
 
-    // Save resultant images
-//    imageSave(&imgGrey);
-
-    // Release memory
-    imageFree(&img1);
-    imageFree(&imgGrey);
+    imageFree(&img1); //libera la memoria de img1
+    imageFree(&imgGrey); //libera la memoria de imgGrey
 
     char command[300] = ".\\";
     strcat(command, imgGrey.name);
